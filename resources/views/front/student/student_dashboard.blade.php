@@ -122,6 +122,14 @@
 													</div>
 												</div>
 												<div class="form-group">
+													{!! Form::label('arranged_by', 'Arranged By', ['class'=>'col-lg-2 control-label']) !!}
+													<div class="col-lg-10">
+														<!-- {!! Form::select('arranged_by', array([''=>'Select one', '1'=>'CDC', '2'=>'Teacher', '3'=>'Self']), isset($user->student->arranged_by)?$user->student->arranged_by:'Your Gender', ['class'=>'form-control']) !!} -->
+
+														{!! Form::select('arranged_by', array(''=>'Select one', '1'=>'CDC', '2'=>'Teacher', '3'=>'Self'), '', ['class'=>'form-control']) !!}
+													</div>
+												</div>
+												<div class="form-group">
 													{!! Form::label('student_id', 'Student Id', ['class'=>'col-lg-2 control-label']) !!}
 													<div class="col-lg-10">
 														{!! Form::number('student_id', null, ['class'=>'form-control']) !!}
@@ -142,7 +150,8 @@
 												<div class="form-group">
 													{!! Form::label('gender', 'Gender', ['class'=>'col-lg-2 control-label']) !!}
 													<div class="col-lg-10">
-														{!! Form::select('gender', array([''=>'Select one', '1'=>'Male', '2'=>'Female']), isset($user->student->gender)?$user->student->gender:'Your Gender', ['class'=>'form-control']) !!}
+														<!-- {!! Form::select('gender', array([''=>'Select One', '1'=>'Male', '2'=>'Female']), null, ['class'=>'form-control']) !!} -->
+														{!! Form::select('gender', array(''=>'Select One',1 => 'Male', 2 => 'Female'), '', ['class'=>'form-control']) !!}
 													</div>
 												</div>
 												<div class="form-group">

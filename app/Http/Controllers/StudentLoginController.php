@@ -60,7 +60,6 @@ class StudentLoginController extends Controller
          }else{
             $user->student()->save($student);
          }
-
          return redirect()->back();
     }
 }
