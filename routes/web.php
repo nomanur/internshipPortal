@@ -29,7 +29,7 @@ Route::group(['middleware'=>'verified'], function(){});
 	Route::get('employeer/dashboard/{id}', 'EmployeerLoginController@showDashboard');
 	Route::post('employeer/dashboard', 'EmployeerLoginController@store');
 
-	//home route
+	//home route new
 	Route::get('/home', 'HomeController@index')->name('home');
 
 
