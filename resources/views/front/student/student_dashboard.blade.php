@@ -124,9 +124,7 @@
 												<div class="form-group">
 													{!! Form::label('arranged_by', 'Arranged By', ['class'=>'col-lg-2 control-label']) !!}
 													<div class="col-lg-10">
-														<!-- {!! Form::select('arranged_by', array([''=>'Select one', '1'=>'CDC', '2'=>'Teacher', '3'=>'Self']), isset($user->student->arranged_by)?$user->student->arranged_by:'Your Gender', ['class'=>'form-control']) !!} -->
-
-														{!! Form::select('arranged_by', array(''=>'Select one', '1'=>'CDC', '2'=>'Teacher', '3'=>'Self'), '', ['class'=>'form-control']) !!}
+														{!! Form::select('arranged_by', array(''=>'Select one', '1'=>'CDC', '2'=>'Teacher', '3'=>'Self'), isset( $user->student->arranged_by)?$user->student->arranged_by:null, ['class'=>'form-control']) !!}
 													</div>
 												</div>
 												<div class="form-group">
@@ -151,7 +149,7 @@
 													{!! Form::label('gender', 'Gender', ['class'=>'col-lg-2 control-label']) !!}
 													<div class="col-lg-10">
 														<!-- {!! Form::select('gender', array([''=>'Select One', '1'=>'Male', '2'=>'Female']), null, ['class'=>'form-control']) !!} -->
-														{!! Form::select('gender', array(''=>'Select One',1 => 'Male', 2 => 'Female'), '', ['class'=>'form-control']) !!}
+														{!! Form::select('gender', array(''=>'Select One',1 => 'Male', 2 => 'Female'), isset( $user->student->gender)?$user->student->gender:null, ['class'=>'form-control']) !!}
 													</div>
 												</div>
 												<div class="form-group">
@@ -166,14 +164,16 @@
 														{!! Form::text('parmanent_address', isset($user->student->parmanent_address)?$user->student->parmanent_address:null, ['class'=>'form-control', 'placeholder'=>'Your Parmanent Address']) !!}
 													</div>
 												</div>
-												
 												<div class="form-group">
-													
-													{!! Form::submit('Submit', ['class'=>'btn btn-primary new']) !!}
-													
+													{!! Form::label('credit_completed', 'Credit Completed', ['class'=>'col-lg-2 control-label']) !!}
+													<div class="col-lg-10">
+														{!! Form::text('credit_completed', isset($user->student->credit_completed)?$user->student->credit_completed:null, ['class'=>'form-control', 'placeholder'=>'Completed Credit']) !!}
+													</div>
 												</div>
 												
-												
+												<div class="form-group">
+													{!! Form::submit('Submit', ['class'=>'btn btn-primary new']) !!}
+												</div>
 												{!! Form::close()  !!}
 												
 											</div>

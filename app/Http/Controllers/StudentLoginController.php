@@ -48,13 +48,15 @@ class StudentLoginController extends Controller
 
 
     public function store(Request $request){
+         
         $input = $request->except(['student_id', 'email']);
 
         $user = Auth::user();
 
         $student = new Student($input);
-         
+
          $updt = Student::where('user_id', '=' , $user->id)->first();   
+
          if (isset(Auth::user()->student->user_id) == Auth::user()->id) {
             $updt->update($input);
          }else{

@@ -18,6 +18,7 @@ class Student extends Model
             'dob',
             'gender',
             'parmanent_address',
-            'user_id'
+            'user_id',
+            'credit_completed'
     ];
 }
