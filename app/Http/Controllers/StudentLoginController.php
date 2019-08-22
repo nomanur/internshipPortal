@@ -63,7 +63,7 @@ class StudentLoginController extends Controller
             $user->student()->save($student);
          }
 
-         //test
+         
          return view('/front/student/application_dashboard');
     }
 }
