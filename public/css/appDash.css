@@ -1,0 +1,155 @@
+.menu ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: #0057ae;
+}
+
+.menu li {
+    display: inline-block;
+}
+
+.menu ul li a {
+    color: #fff;
+    padding: 10px 10px;
+    display: block;
+    font-weight: 700;
+}
+
+.menu ul li a:hover{
+    background: #003264;
+}
+
+.welcome-area .section-title{
+    margin: 20px;
+}
+
+.welcome-area .menu ul{
+    background: #ddd;
+    text-align: center;
+
+}
+
+.welcome-area .menu ul li{
+    padding-right: 110px;
+}
+
+.welcome-area .menu ul li a{
+    font-size: 10px;
+    padding: 5px;
+    color: #fff;
+    background: #003264;
+    border-radius: 5px;
+}
+
+.welcome-area p{
+    background: #E4FFD4;
+    border: 1px solid green;
+}
+
+.intern-info-area .menu li{
+    color: #fff;
+    padding-right: 110px;
+}
+.approval-section .section-title h2{
+    text-align: center;
+    font-size: 15px;
+    margin-top: 10px;
+}
+.approval-section ul{
+    background: #3399FF;
+}
+.approval-section .menu li{
+    width: 33%;
+    text-align: center;
+    color: #fff;
+}
+
+.down-menu ul{
+    background: none;
+}
+.approval-section .down-menu ul li{
+    color: black;
+    font-size: 12px;
+}
+
+.approval-section .down-menu ul li:last-child{
+    background: red;
+    width: 7%;
+    margin-left: 150px;
+    border-radius: 20px;
+    font-size: 8px;
+    display: inline-block;
+}
+.note-section{
+    border-bottom: .1px solid #333;
+}
+.note-section .menu ul{
+    background: none;
+}
+
+.note-section .menu ul li{
+    color: #333;
+    font-size: 10px;
+}
+
+.submission-section .box{
+    min-height: 200px;
+    background: #EAEAEA;
+}
+
+.submission-section .box h2{
+    font-size: 11px;
+}
+
+.box{
+    margin-bottom: 5px;
+}
+
+.box h6{
+    font-size: 10px;
+}
+
+.box button{
+    display: block;
+    margin-top: 10px;
+}
+
+.box a{
+    background: #5BC0DE;
+    color: #fff;
+    display: inline-block;
+    margin-top: 50px;
+    padding: 5px 10px;
+
+}
+
+.box-table{
+    display: table;
+    width: 100%;
+}
+
+.box-table-cell{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.box-table span{
+    margin-left: 200px;
+}
+
+.box .bordered-tag h6{
+    background: red;
+    text-align: center;
+    padding: 2px;
+    margin: 3px;
+    border-radius: 5px;
+}
+
+.footer .menu li{
+    width: 33%;
+}
+
+.footer .menu li a{
+    font-size: 12px;
+}

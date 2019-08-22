@@ -33,7 +33,7 @@ class StudentLoginController extends Controller
 
     public function showDashboard($id){
 
-        $user = Auth::user($id);
+        $user = Auth::user();
 
             return view('/front/student/student_dashboard', compact('user'));
 
@@ -62,6 +62,6 @@ class StudentLoginController extends Controller
          }else{
             $user->student()->save($student);
          }
-         return redirect()->back();
+         return view('/front/student/application_dashboard');
     }
 }
