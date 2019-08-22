@@ -62,6 +62,8 @@ class StudentLoginController extends Controller
          }else{
             $user->student()->save($student);
          }
+
+         //test
          return view('/front/student/application_dashboard');
     }
 }
