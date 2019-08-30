@@ -22,10 +22,8 @@ class StudentLoginController extends Controller
                 $studentId = $request->student_id;
                 return redirect('/student/dashboard/'.$studentId);
             }
-
         }else{
-
-        Session::flash('login_error', 'Id or password didnt match');
+            Session::flash('login_error', 'Id or password didnt match');
         return redirect()->back();
         }
 
@@ -64,6 +62,12 @@ class StudentLoginController extends Controller
          }
 
          
-         return view('/front/student/application_dashboard');
+         return view('/front/student/application_dashboard', compact('user'));
+    }
+
+
+    public function groupOption($id)
+    {
+        return view('/front/student/groupOption', compact('id'));
     }
 }

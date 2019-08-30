@@ -23,6 +23,13 @@ Route::group(['middleware'=>'verified'], function(){});
 	Route::get('student/dashboard/{id}', 'StudentLoginController@showDashboard');
 	Route::post('student/dashboard', 'StudentLoginController@store');
 
+	Route::get('student/dashboard/grp_option/{id}', 'StudentLoginController@groupOption');
+
+	//student group route
+	Route::post('student/dashboard/grp_option/', 'StudentGroupController@store');
+
+
+
 	//employeers route
 	Route::get('employeer/login', 'EmployeerLoginController@showlogin')->name('employeer.login');
 	Route::post('/employeer/login', 'EmployeerLoginController@login');

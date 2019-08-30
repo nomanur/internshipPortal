@@ -40,7 +40,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-title text-center">
-                            <h7>Welcome,<b>Nomanur Rahman</b></h7>
+                            <h7>Welcome,<b>{{$user->name}}</b></h7>
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-title text-center">
-                            <h6>Create Intern Info</h6>
+                            <a href="{{url('student/dashboard/grp_option', $user->id)}}"><h6>Create Intern Info</h6></a>
+                            
                             <p>Internship Application Information</p>
                         </div>
                     </div>

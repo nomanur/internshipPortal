@@ -50,6 +50,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne('App\Student');
     }
 
+     public function StudentGroup()
+    {
+        return $this->hasOne('App\StudentGroup');
+    }
+
     public function isAdmin(){
         if ($this->role->name == 'administrator') {
             
@@ -72,5 +77,7 @@ class User extends Authenticatable implements MustVerifyEmail
         }
             return false;
     }
+
+
 
 }

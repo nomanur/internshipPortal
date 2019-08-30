@@ -21,4 +21,7 @@ class Student extends Model
             'user_id',
             'credit_completed'
     ];
+
+
+    
 }
