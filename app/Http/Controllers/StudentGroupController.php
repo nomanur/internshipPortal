@@ -49,7 +49,6 @@ class StudentGroupController extends Controller
         $group->user_id = $userId;
         $group->group_status = $request->group_status;
 
-       // $group->save();
 
         
         if (($StudentGroupUserId == Auth::user()->id)) {
