@@ -27,6 +27,7 @@ Route::group(['middleware'=>'verified'], function(){});
 
 	//student group route
 	Route::post('student/dashboard/grp_option/', 'StudentGroupController@store');
+	Route::post('student/dashboard/academicInfo/', 'StudentGroupController@academicInfo');
 
 
 

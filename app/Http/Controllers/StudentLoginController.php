@@ -61,7 +61,6 @@ class StudentLoginController extends Controller
             $user->student()->save($student);
          }
 
-         
          return view('/front/student/application_dashboard', compact('user'));
     }
 
@@ -70,4 +69,7 @@ class StudentLoginController extends Controller
     {
         return view('/front/student/groupOption', compact('id'));
     }
+
+
+   
 }

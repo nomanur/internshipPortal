@@ -56,12 +56,12 @@ class StudentGroupController extends Controller
             $StudentGroupId->user_id = $userId;
             $StudentGroupId->group_status = $request->group_status;
 
-             $StudentGroupId->save();
+            $StudentGroupId->save();
          }else{
             $group->save();
          }
 
-
+         return view('/front/student/studentAcademicInfo');
     }
 
     /**
@@ -107,5 +107,10 @@ class StudentGroupController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+     public function academicInfo()
+    {
+        return 'ok';
     }
 }

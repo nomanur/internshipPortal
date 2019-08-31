@@ -10,4 +10,6 @@ class StudentGroup extends Model
     	'student_id',
     	'group_status'
     ];
+
+    
 }
