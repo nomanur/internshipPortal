@@ -55,9 +55,13 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne('App\StudentGroup');
     }
 
+    public function studentInfo()
+    {
+        return $this->hasOne('App\StudentInternInfo');
+    }
+
     public function isAdmin(){
         if ($this->role->name == 'administrator') {
-            
             return true;
         }
             return false;

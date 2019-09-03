@@ -34,6 +34,16 @@
                 </div>
             </div>
         </div>
+
+        @if(count($errors) > 0)
+      <div class="alert alert-danger">
+        <ul>
+          @foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+          @endforeach
+        </ul>
+      </div>
+    @endif
         
         <div class="container">
             <div class="row">
@@ -56,23 +66,23 @@
         </div>
 
         <hr>
-
+        
         <div class="info-area">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                           {!! Form::open(['method'=>'POST', 'action'=>'StudentGroupController@academicInfo']) !!}
+                           {!! Form::open(['method'=>'POST', 'action'=>'StudentController@store']) !!}
                         <div class="row">
                             <div class="col-md-6">
                                <div class="form-group">
-                                   {!! Form::label('internship_semester', 'Internship Semester') !!}
-                                   {!! Form::select('internship_semester',[''=>'Choose Options', '1'=>'spring 2019'], null, ['class'=>'form-control']) !!}
+                                   {!! Form::label('intern_semester', 'Internship Semester') !!}
+                                   {!! Form::select('intern_semester',[''=>'Choose Options', 'spring-19'=>'spring 2019'], null, ['class'=>'form-control']) !!}
                                </div>
                             </div>
                             <div class="col-md-6">
                                <div class="form-group">
-                                   {!! Form::label('till_now_completed_credits', 'Till Now Completed Credits') !!}
-                                   {!! Form::text('till_now_completed_credits', null, ['class'=>'form-control']) !!}
+                                   {!! Form::label('completed_credit_till_now', 'Till Now Completed Credits') !!}
+                                   {!! Form::text('completed_credit_till_now', null, ['class'=>'form-control']) !!}
                                </div>
                             </div>
                             <div class="col-md-6">
@@ -89,8 +99,8 @@
                             </div>
                             <div class="col-md-6">
                                <div class="form-group">
-                                   {!! Form::label('internship_arranged_by', 'Internship Arranged By') !!}
-                                   {!! Form::select('internship_arranged_by',['1'=>'CBC', '2'=>'SELF'], NULL, ['class'=>'form-control']) !!}
+                                   {!! Form::label('intern_arranged_by', 'Internship Arranged By') !!}
+                                   {!! Form::select('intern_arranged_by',['1'=>'CBC', '2'=>'SELF'], NULL, ['class'=>'form-control']) !!}
                                </div>
                             </div>
                             <div class="col-md-6">
@@ -101,8 +111,8 @@
                             </div>
                             <div class="col-md-6">
                                <div class="form-group">
-                                   {!! Form::label('int_strarting_date', 'Internship starting date') !!}
-                                   {!! Form::date('int_strarting_date', null, ['class'=>'form-control']) !!}
+                                   {!! Form::label('intern_starting_date', 'Internship starting date') !!}
+                                   {!! Form::date('intern_starting_date', null, ['class'=>'form-control']) !!}
                                </div>
                             </div>
                         </div>
