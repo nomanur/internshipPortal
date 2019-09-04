@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StudentInfoRequest;
 use App\StudentInternInfo;
+use App\Supervisor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,13 +39,10 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         
-
         $user = Auth::User();
         
-
         $StudentInfo = new StudentInternInfo();
-
-        
+       
         if(StudentInternInfo::where('user_id', '=', $user->id)->exists()){
           
             $StudentInfo = $StudentInfo->findOrFail($user->id);
@@ -57,6 +55,7 @@ class StudentController extends Controller
             $StudentInfo->completed_credit_till_now = $request->completed_credit_till_now;
             $StudentInfo->specification = $request->specification;
             $StudentInfo->result_till_now = $request->result_till_now;
+            $StudentInfo->supervisor_id = $request->supervisor;
 
             $StudentInfo->save();
         }else{
@@ -68,15 +67,14 @@ class StudentController extends Controller
             $StudentInfo->completed_credit_till_now = $request->completed_credit_till_now;
             $StudentInfo->specification = $request->specification;
             $StudentInfo->result_till_now = $request->result_till_now;
+            $StudentInfo->supervisor_id = $request->supervisor;
 
             $StudentInfo->save();
         }
 
-
-        $studentId = StudentInternInfo::where('user_id', '=', $user->id)->get();
-        
-        return view('front/student/studentAcademicInfo', compact('user'));
-
+       
+        return redirect()->back();
+      
     }
 
     /**
@@ -88,8 +86,8 @@ class StudentController extends Controller
     public function show($id)
     {   
         $user = Auth::user();
-
-        return view('front/student/studentAcademicInfo', compact('user'));
+        $supervisor = Supervisor::pluck('supervisor_name', 'id')->all();
+        return view('front/student/studentAcademicInfo', compact('user', 'supervisor'));
     }
 
     /**
@@ -100,7 +98,7 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        return 'ok';
+        
     }
 
     /**

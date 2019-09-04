@@ -15,5 +15,6 @@ class StudentInternInfo extends Model
     		'completed_credit_till_now',
     		'specification',
     		'result_till_now',
+            'supervisor_id'
     ];
 }

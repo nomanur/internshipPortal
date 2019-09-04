@@ -35,16 +35,7 @@
             </div>
         </div>
 
-        @if(count($errors) > 0)
-      <div class="alert alert-danger">
-        <ul>
-          @foreach($errors->all() as $error)
-            <li>{{$error}}</li>
-          @endforeach
-        </ul>
-      </div>
-    @endif
-        
+      
         
 
         <hr>
@@ -59,15 +50,10 @@
                              <div class="col-md-6">
                                <div class="form-group">
                                    {!! Form::label('supervisor', 'Supervisor') !!}
-                                   {!! Form::text('supervisor', null, ['class'=>'form-control']) !!}
+                                   {!! Form::select('supervisor',[''=>'Select Options'] + $supervisor,  isset($user->studentInfo->supervisor_id)?$user->studentInfo->supervisor_id:null, ['class'=>'form-control']) !!}
                                </div>
                             </div>
-                             <div class="col-md-6">
-                               <div class="form-group">
-                                   {!! Form::label('co-supervisor', 'Co-Supervisor') !!}
-                                   {!! Form::text('co-supervisor', null, ['class'=>'form-control']) !!}
-                               </div>
-                            </div>
+                          
                             <div class="col-md-6">
                                <div class="form-group">
                                    {!! Form::label('intern_semester', 'Internship Semester') !!}
@@ -112,6 +98,17 @@
                             </div>
                         </div>
                        
+
+    @if(count($errors) > 0)
+      <div class="alert alert-danger">
+        <ul>
+          @foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+          @endforeach
+        </ul>
+      </div>
+    @endif
+        
                        
                            <div class="form-group">
                                {!! Form::submit('Submit', ['class'=>'btn btn-primary']) !!}

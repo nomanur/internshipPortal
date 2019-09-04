@@ -80,9 +80,7 @@ class StudentGroupController extends Controller
          }else{
             $group->save();
          }
-
-        
-
+    
          return redirect('student/dashboard/academicInfo/'. $user->id);
     }
 
@@ -133,6 +131,6 @@ class StudentGroupController extends Controller
 
      public function academicInfo()
     {
-        return 'ok';
+        //return 'ok';
     }
 }

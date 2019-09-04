@@ -19,7 +19,8 @@ class Student extends Model
             'gender',
             'parmanent_address',
             'user_id',
-            'credit_completed'
+            'credit_completed',
+            'supervisor_id'
     ];
 
 
