@@ -37,7 +37,7 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->except('supervisor');
+        
 
         $user = Auth::User();
         
@@ -45,7 +45,7 @@ class StudentController extends Controller
         $StudentInfo = new StudentInternInfo();
 
         
-        if($user->StudentInfo->id = $user->id){
+        if(StudentInternInfo::where('user_id', '=', $user->id)->exists()){
           
             $StudentInfo = $StudentInfo->findOrFail($user->id);
 
@@ -75,7 +75,7 @@ class StudentController extends Controller
 
         $studentId = StudentInternInfo::where('user_id', '=', $user->id)->get();
         
-        return view('front/student/studentAcademicInfo');
+        return view('front/student/studentAcademicInfo', compact('user'));
 
     }
 
@@ -86,8 +86,10 @@ class StudentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   
+        $user = Auth::user();
+
+        return view('front/student/studentAcademicInfo', compact('user'));
     }
 
     /**
@@ -98,7 +100,7 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        return 'ok';
     }
 
     /**

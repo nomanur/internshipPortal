@@ -28,8 +28,8 @@ Route::group(['middleware'=>'verified'], function(){});
 	//student group route
 	Route::post('student/dashboard/grp_option/', 'StudentGroupController@store');
 
-	Route::get('student/dashboard/academicInfo/', 'StudentController@create');
-	Route::post('student/dashboard/id', 'StudentController@store');
+	Route::get('student/dashboard/academicInfo/{id}', 'StudentController@show');
+	Route::post('student/dashboard/academicInfo', 'StudentController@store');
 
 	//employeers route
 	Route::get('employeer/login', 'EmployeerLoginController@showlogin')->name('employeer.login');

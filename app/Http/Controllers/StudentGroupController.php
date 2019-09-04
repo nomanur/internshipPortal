@@ -40,7 +40,7 @@ class StudentGroupController extends Controller
     public function store(Request $request)
     {
        
-        $userId = Auth::User()->id;
+        /*$userId = Auth::User()->id;
 
         $StudentGroupId = StudentGroup::where('user_id', '=', $userId)->first();
         $StudentGroupUserId = $StudentGroupId->user_id;
@@ -48,8 +48,6 @@ class StudentGroupController extends Controller
 
         $group->user_id = $userId;
         $group->group_status = $request->group_status;
-
-
         
         if (($StudentGroupUserId == Auth::user()->id)) {
 
@@ -59,9 +57,33 @@ class StudentGroupController extends Controller
             $StudentGroupId->save();
          }else{
             $group->save();
+         }*/
+
+        $user = Auth::User();
+
+        
+        $group = new StudentGroup();
+
+        $group->user_id = $user->id;
+        $group->group_status = $request->group_status;
+
+
+        //$StudentGroupId = StudentGroup::where('user_id', '=', $userId)->exist();
+        //$StudentGroupUserId = $StudentGroupId->user_id;
+
+        if (StudentGroup::where('user_id', '=', $user->id)->exists()) {
+            $StudentGroupId = StudentGroup::where('user_id', '=', $user->id)->first();
+            $StudentGroupId->user_id = $user->id;
+            $StudentGroupId->group_status = $request->group_status;
+
+            $StudentGroupId->save();
+         }else{
+            $group->save();
          }
 
-         return view('/front/student/studentAcademicInfo');
+        
+
+         return redirect('student/dashboard/academicInfo/'. $user->id);
     }
 
     /**

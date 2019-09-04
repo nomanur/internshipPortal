@@ -45,25 +45,7 @@
       </div>
     @endif
         
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="title text-center">
-                        <h4>Academic information</h4>
-                    </div>
-
-                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h6>Supervisor:</h6>
-                            </div>
-                            <div class="col-md-6">
-                                <h6>Co-Supervisor:</h6>
-                            </div>
-                        </div>
-                </div>
-            </div>
-        </div>
+        
 
         <hr>
         
@@ -71,48 +53,61 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                           {!! Form::open(['method'=>'POST', 'action'=>'StudentController@store']) !!}
+                           
+                           {!! Form::model($user, ['method'=>'POST', 'action'=>['StudentController@store', 'class'=>'form-horizontal', $user->id]]) !!}
                         <div class="row">
+                             <div class="col-md-6">
+                               <div class="form-group">
+                                   {!! Form::label('supervisor', 'Supervisor') !!}
+                                   {!! Form::text('supervisor', null, ['class'=>'form-control']) !!}
+                               </div>
+                            </div>
+                             <div class="col-md-6">
+                               <div class="form-group">
+                                   {!! Form::label('co-supervisor', 'Co-Supervisor') !!}
+                                   {!! Form::text('co-supervisor', null, ['class'=>'form-control']) !!}
+                               </div>
+                            </div>
                             <div class="col-md-6">
                                <div class="form-group">
                                    {!! Form::label('intern_semester', 'Internship Semester') !!}
-                                   {!! Form::select('intern_semester',[''=>'Choose Options', 'spring-19'=>'spring 2019'], null, ['class'=>'form-control']) !!}
+                                   {!! Form::select('intern_semester',[''=>'Choose Options', 'spring-19'=>'spring 2019'], isset($user->studentInfo->intern_semester)?$user->studentInfo->intern_semester:null, ['class'=>'form-control']) !!}
                                </div>
                             </div>
                             <div class="col-md-6">
                                <div class="form-group">
                                    {!! Form::label('completed_credit_till_now', 'Till Now Completed Credits') !!}
-                                   {!! Form::text('completed_credit_till_now', null, ['class'=>'form-control']) !!}
+                                   {!! Form::text('completed_credit_till_now', isset($user->studentInfo->completed_credit_till_now)?$user->studentInfo->completed_credit_till_now:null, ['class'=>'form-control']) !!}
                                </div>
                             </div>
                             <div class="col-md-6">
                                <div class="form-group">
                                    {!! Form::label('group_id', 'Group Id') !!}
-                                   {!! Form::text('group_id', null, ['class'=>'form-control']) !!}
+                                   {!! Form::text('group_id', isset($user->studentInfo->group_id)?$user->studentInfo->group_id:null, ['class'=>'form-control']) !!}
                                </div>
                             </div>
                             <div class="col-md-6">
                                <div class="form-group">
                                    {!! Form::label('specification', 'Specification') !!}
-                                   {!! Form::text('specification', null, ['class'=>'form-control']) !!}
+                                   {!! Form::text('specification',  isset($user->studentInfo->specification)?$user->studentInfo->specification:null, ['class'=>'form-control']) !!}
                                </div>
                             </div>
                             <div class="col-md-6">
                                <div class="form-group">
                                    {!! Form::label('intern_arranged_by', 'Internship Arranged By') !!}
-                                   {!! Form::select('intern_arranged_by',['1'=>'CBC', '2'=>'SELF'], NULL, ['class'=>'form-control']) !!}
+                                   {!! Form::select('intern_arranged_by',[''=>'select one','1'=>'CBC', '2'=>'SELF'], isset($user->studentInfo->intern_arranged_by)?$user->studentInfo->intern_arranged_by:null, ['class'=>'form-control']) !!}
                                </div>
                             </div>
                             <div class="col-md-6">
                                <div class="form-group">
                                    {!! Form::label('result_till_now', 'Result till now (out of 4)') !!}
-                                   {!! Form::text('result_till_now', null, ['class'=>'form-control']) !!}
+                                   {!! Form::text('result_till_now', isset($user->studentInfo->result_till_now)?$user->studentInfo->result_till_now:null, ['class'=>'form-control']) !!}
                                </div>
                             </div>
                             <div class="col-md-6">
                                <div class="form-group">
                                    {!! Form::label('intern_starting_date', 'Internship starting date') !!}
-                                   {!! Form::date('intern_starting_date', null, ['class'=>'form-control']) !!}
+                                   {!! Form::date('intern_starting_date', isset($user->studentInfo->intern_starting_date)?$user->studentInfo->intern_starting_date:null, ['class'=>'form-control']) !!}
                                </div>
                             </div>
                         </div>
